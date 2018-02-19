@@ -1,8 +1,0 @@
-a = list('abcde')
-print(a)
-a.reverse()
-print(a)
-a.reverse()
-print(a)
-a.sort(reverse=True)
-print(a)
