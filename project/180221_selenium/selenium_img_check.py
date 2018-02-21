@@ -1,6 +1,7 @@
 from selenium import webdriver
 import time
 import pandas as pd
+import pygsheets
 
 #check
 def check_element(driver, selector):
@@ -14,7 +15,7 @@ def check_element(driver, selector):
 df = pd.DataFrame(columns=["label"])
 df['label'] = ['Joy', 'Sorrow', 'Anger', 'Surprise', 'Exposed', 'Blurred', 'Headwear', 'confidence']
 
-for i in range(0, 3): #사진 갯수
+for i in range(0, 14): #사진 갯수
 
     #open browser
     driver = webdriver.Chrome()
@@ -52,7 +53,6 @@ for i in range(0, 3): #사진 갯수
         if check_element(driver, selector):
             score = driver.find_elements_by_css_selector('#card div.face.style-scope.vs-faces > div #text')
             conf = driver.find_elements_by_css_selector('#card div.conf-score.style-scope.vs-faces')
-            print('scdone')
             doing = False
 
         if sec + 1 > limit_sec:
@@ -78,10 +78,22 @@ for i in range(0, 3): #사진 갯수
             df.iat[idx, i+1] = a
 
     #confidence 추가
-    print(conf)
     df.iat[7, i+1] = float(conf[0].text.strip('%'))
-
+    print('{}'.format(i))
     # 한 사이클 돌 때마다 닫음 (새로고침 불가)
     driver.close()
 
 print(df)
+
+# google spread sheet에 저장
+gc = pygsheets.authorize(outh_file='client_secret.json')
+sh = gc.open('sele')
+sheet1 = sh.sheet1
+
+# index type change (int -> str)
+df.index = df.index.map(str)
+# save
+sheet1.set_dataframe(df, 'A1', copy_index=True) # (df, cell_start)
+
+# csv 파일로 export하기
+sheet1.export(pygsheets.ExportType.CSV, filename="sheet1.csv")
