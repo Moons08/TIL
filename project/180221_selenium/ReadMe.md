@@ -4,20 +4,22 @@
 
 > selenium webdriver
 > Pillow
-> [google vision API](https://cloud.google.com/vision/)
+> google vision API
 > pygsheets
 
 #### what I am going to do
 
-- collecting data
+[Collect data](https://github.com/Moons08/TIL/blob/master/project/180221_selenium/selenium_collect_img.py)
 
-    1. scrap image files from Youtube
-    1. analyze images by google vision API
-    1. save as pandas (Data_Frame)
-    1. upload on google spread sheet with pygsheets
+- scrap image files from Youtube
 
-- analizing data
+[Use google vision API](https://github.com/Moons08/TIL/blob/master/project/180221_selenium/selenium_img_check.py)
+- analyze images by google vision API
+- save as pandas (Data_Frame)
+- upload on google spread sheet with pygsheets
 
-    1. load data from google spread sheet
-    1. analyze collected data
+analizing data
+
+- load data from google spread sheet
+- analyze collected data
 ---
