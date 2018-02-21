@@ -3,9 +3,9 @@
 #### what I used
 
 > selenium webdriver
-> Pillow
-> google vision API
-> pygsheets
+> | Pillow
+> | google vision API
+> | pygsheets
 
 #### what I am going to do
 
