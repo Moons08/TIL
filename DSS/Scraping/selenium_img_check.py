@@ -14,7 +14,7 @@ def check_element(driver, selector):
 df = pd.DataFrame(columns=["label"])
 df['label'] = ['Joy', 'Sorrow', 'Anger', 'Surprise', 'Exposed', 'Blurred', 'Headwear', 'confidence']
 
-for i in range(0, 12): #사진 갯수
+for i in range(0, 3): #사진 갯수
 
     #open browser
     driver = webdriver.Chrome()
@@ -66,14 +66,16 @@ for i in range(0, 12): #사진 갯수
     # 새 컬럼에 데이터 추가
     for idx, val in enumerate(score):
         a = val.text
+        if idx > 6:
+            continue
+        else:
+            if a == 'Very Unlikely': a = 0
+            elif a == 'Unlikely': a = 1
+            elif a == 'Possible': a = 2
+            elif a == 'Likely': a = 3
+            elif a == 'Very Likely': a = 4
 
-        if a == 'Very Unlikely': a = 0
-        elif a == 'Unlikely': a = 1
-        elif a == 'Possible': a = 2
-        elif a == 'Likely': a = 3
-        elif a == 'Very Likely': a = 4
-
-        df.iat[idx, i+1] = a
+            df.iat[idx, i+1] = a
 
     #confidence 추가
     print(conf)
