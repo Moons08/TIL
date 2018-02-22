@@ -1,16 +1,16 @@
 ## Tips data
 
->data status (*from seaborn*)
-columns : total_bill, tip, sex, smoker, day, time, size
-number of rows : 244
+- data status (*from seaborn*)
+    - columns : total_bill, tip, sex, smoker, day, time, size
+    - number of rows : 244
 
 #### what to do
 - find a way to get more tip
 
-##### what I used
+#### what I used
 > pandas | seaborn | pgmpy
 
-##### hypothesis
+#### hypothesis
 - First
     1. total_bill
     1. size
@@ -22,7 +22,7 @@ number of rows : 244
     1. day
 
 - Last
-    tring to find the feature of upper class
+    - there could be the feature of upper class
 
 
 #### conclusion
