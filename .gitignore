@@ -102,5 +102,5 @@ ENV/
 
 #json
 *.json
-/ing
-ing/*
+HackerRank/ing
+Untitled*
