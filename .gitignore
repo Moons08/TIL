@@ -103,3 +103,4 @@ ENV/
 #json
 *.json
 /ing
+ing/*
