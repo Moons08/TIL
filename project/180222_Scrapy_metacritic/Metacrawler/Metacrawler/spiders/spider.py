@@ -15,7 +15,7 @@ class MetaSpider(scrapy.Spider):
     def parse(self, response):
         movies = response.xpath('//*[@class="browse_list_wrapper wide"]/table/tr')
         for movie in movies:
-            link = ['http://www.metacritic.com'+movie.xpath('./*/div[@class="title"]/a/@href').extract()[0]]
+            link = 'http://www.metacritic.com'+movie.xpath('./*/div[@class="title"]/a/@href').extract()[0]
             print(link)
             yield scrapy.Request(link, callback=self.parse_page_contents)
 
