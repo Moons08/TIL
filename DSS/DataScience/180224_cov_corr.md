@@ -19,7 +19,7 @@ $$s_{xy} = \dfrac{1}{N}\sum_{i=1}^{N} (x_i-m_x)(y_i-m_y)$$
 
 $$\text{Pearson:}\;\;r_{xy} = \dfrac{s_{xy}}{\sqrt{s^2_{x} \cdot s^2_{y}}}$$
 
-### 학률 변수의 공분산, 상관계수 (Ideal)
+### 확률 변수의 공분산, 상관계수 (Ideal)
 
 $$\text{Cov}[X, Y] = \text{E}[(X - \text{E}[X])(Y - \text{E}[Y])]$$
 
