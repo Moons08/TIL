@@ -104,3 +104,5 @@ ENV/
 *.json
 HackerRank/ing
 Untitled*
+*.bin
+pickle.*
