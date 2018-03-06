@@ -1,4 +1,9 @@
-### mail
+
+#### 서버 상태 체크
+df -h
+
+
+#### mail
 `grep CRON /var/log/syslog` crontab 실행 명령 리스트
 `sudo apt-get install postfix` 메일 만들기
 `cat /var/mail/ubuntu` mail 읽기
@@ -36,3 +41,6 @@ alias ssh=ssh -i /home/mk/documents/AWS/testkey.pem
 history
 !(숫자)
 ```
+
+### check
+- Travis-CI
