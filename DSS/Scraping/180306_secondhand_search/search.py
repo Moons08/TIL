@@ -1,7 +1,7 @@
 import requests
 import pandas as pd
-import pickle
 from bs4 import BeautifulSoup
+import pickle
 
 # 전체 데이터 갯수를 가져오는 함수
 def get_total(keyword):
@@ -21,7 +21,7 @@ def get_items(keyword, page):
 # 상세 페이지에서 가격정보를 가져오는 함수
 def get_price(link):
     with open('cookie.bin', 'rb') as f:
-        a = pickle.load(f)
+        a = pickle.load(f) # when you use pickle, never ever name that file as pickle.py like that
     headers = {
             "cookie" : "{}".format(a),
             "user-agent" : 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.0; Trident/4.0; GTB7.4; InfoPath.3; SV1; .NET CLR 3.1.76908; WOW64; en-US)'
@@ -50,7 +50,7 @@ def make_datas(items):
         date = item.select_one(".time").text
         price = get_price(link)
 
-        datas.append([title, link, view, date, price])
+        datas.append([title, view, date, price, link])
     print(len(datas))
     return datas
 
@@ -67,6 +67,7 @@ def all_datas(keyword):
 # 데이터 프레임화 + csv파일로 저장
 datas = all_datas("공기측정기")
 
-columns = ["title", "link", "views", "date", "price"]
+columns = ["title", "views", "date", "price", "link"]
+
 df = pd.DataFrame(datas, columns=columns)
 df.to_csv("PeacefulWorld.csv")
