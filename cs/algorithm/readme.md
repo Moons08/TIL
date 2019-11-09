@@ -1,20 +1,22 @@
 # algorithms
 
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
 ## sort
 
 ### selectionSort
 
-$`O(N^2)`$  
+$O(N^2)$  
 가장 작은 값을 찾는데 $N$, 찾은 값을 차례로 앞에 갖다 놓는데 $N$
 
 ### insertionSort
 
-$`O(N^2)`$  
+$O(N^2)$  
 모든 값에대해 $N$ 왼쪽에는 작은 값이, 오른쪽에는 큰 값이 오도록 위치를 선택하는데 $N$
 
 ### quickSort
 
-평균 $`O(N \log N)`$, 최악 $`O(N^2)`$  
+평균 $O(N \log N)$, 최악 $O(N^2)$  
 분할정복이 핵심.
 
 1. 정렬 대상 중 하나의 값을 선택(=피벗 값)
