@@ -24,3 +24,14 @@
 ## Stack
 
 - 후입선출
+
+## Binary Tree
+
+하나의 루트 노드로부터 각 노드가 최대 2개의 자식 노드를 가질 수 있는 트리 구조
+
+- Full Binary Tree
+  - 리프 노드 제외 모든 노드가 두 자식 가짐
+- Complete Binary Tree
+  - 왼쪽부터 하나씩 채워짐
+- Heigth Balanced Tree
+  - 좌우 자식 트리의 높이가 2 이상 차이나지 않음
