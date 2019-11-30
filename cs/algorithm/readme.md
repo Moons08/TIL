@@ -49,3 +49,10 @@ O(N^2)
 
 깊이우선과 비슷하지만 너비를 우선.. 큐 개념에 기초
 
+### graph - Prim's algorithm
+
+가중치가 있는 연결된 무향 그래프의 꼭짓점을 포함하면서 각 변의 비용의 합이 최소가 되는 부분 그래프인 트리(최소 신장 트리)를 찾는 알고리즘 O(ElogV)의 시간 복잡도
+
+### graph - Dijkstra's Shortest Path algorithm
+
+프림 알고리즘과 비슷
