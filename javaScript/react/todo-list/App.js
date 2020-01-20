@@ -12,11 +12,13 @@ class App extends Component {
         {id:0, todo:'sample1', checked:false},
         {id:1, todo:'sample2', checked:false},
         {id:2, todo:'sample3', checked:false},
-      ]
-    }
+        ]
+      };
+    // this.handleCreate.bind(this); arrow function 사용시 bind 필요없음
+    // this.handleRemove.bind(this);
   }
 
-  add(_todo){
+  handleCreate = (_todo) => {
     let _max_content_id = this.state.max_content_id + 1
     let _data = Array.from(this.state.data);
     _data = _data.concat(
@@ -30,7 +32,7 @@ class App extends Component {
     })
   }
 
-  delete(){
+  handleRemove = () => {
     if (window.confirm('really?')) {
       let _data = Array.from(this.state.data);
       this.setState({
@@ -44,12 +46,12 @@ class App extends Component {
       <div className="App">
         <JobList data={this.state.data}></JobList>
 
-        <AddJob onSubmit={this.add.bind(this)}></AddJob>
+        <AddJob onSubmit={this.handleCreate}></AddJob>
 
         <input 
           type='button'
           value='remove'
-          onClick={this.delete.bind(this)}>
+          onClick={this.handleRemove}>
         </input>
       </div>
     );
