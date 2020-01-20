@@ -15,40 +15,41 @@ class App extends Component {
       ]
     }
   }
- 
+
+  add(_todo){
+    let _max_content_id = this.state.max_content_id + 1
+    let _data = Array.from(this.state.data);
+    _data = _data.concat(
+      {id:_max_content_id,
+       todo: _todo,
+       checked: false}
+    )
+    this.setState({
+      data:_data,
+      max_content_id:_max_content_id
+    })
+  }
+
+  delete(){
+    if (window.confirm('really?')) {
+      let _data = Array.from(this.state.data);
+      this.setState({
+        data: _data.filter(data => data.checked !== true)
+      })
+    }
+  }
+
   render() {
   return (
       <div className="App">
         <JobList data={this.state.data}></JobList>
 
-        <AddJob onSubmit={function(_todo){
-          let _max_content_id = this.state.max_content_id + 1
-          let _data = Array.from(this.state.data);
-          _data = _data.concat(
-            {id:_max_content_id,
-             todo: _todo,
-             checked: false}
-          )
-          this.setState({
-            data:_data,
-            max_content_id:_max_content_id
-          })
-        }.bind(this)}></AddJob>
+        <AddJob onSubmit={this.add.bind(this)}></AddJob>
 
-        <input type='button' value='remove'
-          onClick={function(){
-              if (window.confirm('really?')) {
-                let _data = Array.from(this.state.data);
-                for (let i=_data.length-1; i >=0 ; i--){
-                  if (_data[i].checked) {
-                    _data.splice(i, 1);
-                  }
-                }
-                this.setState({
-                  data: _data
-                })
-              }
-          }.bind(this)}>
+        <input 
+          type='button'
+          value='remove'
+          onClick={this.delete.bind(this)}>
         </input>
       </div>
     );
