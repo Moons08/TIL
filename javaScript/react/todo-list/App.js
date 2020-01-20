@@ -25,7 +25,7 @@ class App extends Component {
           let _max_content_id = this.state.max_content_id + 1
           let _data = Array.from(this.state.data);
           _data = _data.concat(
-            {id:this.state.max_content_id,
+            {id:_max_content_id,
              todo: _todo,
              checked: false}
           )
